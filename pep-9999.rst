@@ -11,6 +11,8 @@ Post-History: 12-Jun-2018
 Structure (from PEP-12)
 =======================
 
+Structure::
+
     First-Level Title
     =================
 
