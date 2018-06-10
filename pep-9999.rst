@@ -42,6 +42,12 @@ instead of::
 
 as must be done in many other programming languages.
 
+Also::
+
+    while values:
+        x = values.pop()
+        print(x)
+
 The default is that any object that is not `None` or *empty* evaluates as to a *true* value when used as a condition. That definition is used to an advantage in many common Python idioms::
 
     if re.match(r'^\d+-\d+$', identifier): 
@@ -57,6 +63,10 @@ This proposal allows the use of the ``as`` keyword in ``if`` and ``while`` state
     if re.match(r'^(\d+)-(\d+)$', identifier) as m:
         print(f'first part is {m.group(1)}')
         print(f'first part is {m.group(2)}')
+
+
+Iterables and `for`
+-------------------
 
 
 Use Cases
@@ -75,6 +85,23 @@ Resolved Issues
 
 Rejected Options
 ================
+
+Make `as` ane form of assignment expression
+-------------------------------------------
+
+Example::
+
+    if not (m := re.match(r'^(\d+)-(\d+)$', identifier):
+        raise ValueError('f{identifier} is not a valid identifier')
+    print(f'first part is {m.group(1)}')
+    print(f'first part is {m.group(2)}')
+
+Another::
+
+    while values and not is_sentinel(v := values.pop()):
+        process(v)
+
+
 
 Examples
 ========
