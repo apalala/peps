@@ -1,0 +1,88 @@
+PEP: 9999
+Title: Use ``as`` to name the condition in ``if`` and ``while`` statements
+Author: Juancarlo Añez <apalala@gmail.com>
+Status: Draft
+Type: Standards Track
+Content-Type: text/x-rst
+Created: 12-Jun-2018
+Post-History: 12-Jun-2018
+
+
+Structure (from PEP-12)
+=======================
+
+    First-Level Title
+    =================
+
+    Second-Level Title
+    ------------------
+
+    Third-Level Title
+    '''''''''''''''''
+
+
+Abstract
+========
+
+This PEP introduces the use of the ``as`` keyword to capture the expression serving as condition in ``if`` and ``while`` statements.
+
+The proposed change does not introduce a new kind of expression nor new semantics, but just a way to capture the value of an expression as a _name_ added to the current scope as it is done in the ``with-as`` and ``except-as`` statements.
+
+Introduction
+============
+
+Motivation and Summary
+======================
+
+Use Cases
+=========
+
+Specification: The ``if-as`` and ``while-as`` Statements
+========================================================
+
+Transition Plan
+===============
+
+The new syntax does not introduce any conflicts with previous or on-the-works syntax or libraries, so it can be introduced without a transition strategy.
+
+Resolved Issues
+===============
+
+Rejected Options
+================
+
+Examples
+========
+
+Reference Implementation
+========================
+
+Acknowledgements
+================
+
+
+References
+==========
+
+.. [572] PEP 572 -- Assignment Expressions, Chris Angelico, Tim Peters, Guido van Rossum
+    (https://www.python.org/dev/peps/pep-0572)
+
+.. [boolean] Boolean operations - Python language reference
+    (https://docs.python.org/3/reference/expressions.html#boolean-operations)
+
+
+Copyright
+=========
+
+This document has been placed in the public domain.
+
+
+
+..
+   Local Variables:
+   mode: indented-text
+   indent-tabs-mode: nil
+   sentence-end-double-space: t
+   fill-column: 70
+   coding: utf-8
+   End:
