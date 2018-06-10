@@ -8,10 +8,7 @@ Created: 12-Jun-2018
 Post-History: 12-Jun-2018
 
 
-Structure (from PEP-12)
-=======================
-
-Structure::
+Structure (from PEP-12)::
 
     First-Level Title
     =================
