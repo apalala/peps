@@ -27,11 +27,37 @@ This PEP introduces the use of the ``as`` keyword to capture the expression serv
 
 The proposed change does not introduce a new kind of expression nor new semantics, but just a way to capture the value of an expression as a _name_ added to the current scope as it is done in the ``with-as`` and ``except-as`` statements.
 
-Introduction
-============
+Rationale
+=========
 
-Motivation and Summary
-======================
+Python's definition of *boolean operations* [BOOL]_ allows for succing yet clear ways of writing conditions for control flow::
+
+    if sum(values):
+        print('values do not add to zero')
+
+instead of::
+
+    if sum(values) != 0:
+        print('values do not add to zero')
+
+as must be done in many other programming languages.
+
+The default is that any object that is not `None` or *empty* evaluates as to a *true* value when used as a condition. That definition is used to an advantage in many common Python idioms::
+
+    if re.match(r'^\d+-\d+$', identifier): 
+        print(f'{identifier} is a valid identifier')
+
+instead of::
+
+    if re.match(r'^\d+-\d+$', identifier) is not None: 
+        print(f'{identifier} is a valid identifier')
+
+This proposal allows the use of the ``as`` keyword in ``if`` and ``while`` statements to capture the result of the conditional expression as a name in the current scope::
+
+    if re.match(r'^(\d+)-(\d+)$', identifier) as m:
+        print(f'first part is {m.group(1)}')
+        print(f'first part is {m.group(2)}')
+
 
 Use Cases
 =========
@@ -63,11 +89,12 @@ Acknowledgements
 References
 ==========
 
-.. [572] PEP 572 -- Assignment Expressions, Chris Angelico, Tim Peters, Guido van Rossum
+.. [BOOL] Boolean operations - Python language reference
+    (https://docs.python.org/3/reference/expressions.html#boolean-operations)
+
+.. [PEP 572] PEP 572 -- Assignment Expressions, Chris Angelico, Tim Peters, Guido van Rossum
     (https://www.python.org/dev/peps/pep-0572)
 
-.. [boolean] Boolean operations - Python language reference
-    (https://docs.python.org/3/reference/expressions.html#boolean-operations)
 
 
 Copyright
